@@ -1,0 +1,229 @@
+
+<!--
+=========================================================
+Material Dashboard - v2.1.2
+=========================================================
+
+Product Page: https://www.creative-tim.com/product/material-dashboard
+Copyright 2020 Creative Tim (https://www.creative-tim.com)
+Coded by Creative Tim
+
+=========================================================
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+<!DOCTYPE html>
+<html lang="en" ng-app='app'>
+
+<head>
+  <meta charset="utf-8" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+        Create your own ToDo
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="../../assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
+</head>
+
+<body class="">
+<div class="wrapper ">
+  <div class="main-panel">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+      <div class="container-fluid">
+        <div class="navbar-wrapper">
+          <a class=" simple-text logo-normal" href="#"><h2>ToDo</h2><b>App</b></a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="navbar-toggler-icon icon-bar"></span>
+          <span class="navbar-toggler-icon icon-bar"></span>
+          <span class="navbar-toggler-icon icon-bar"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center">
+          <form class="navbar-form">
+            <div class="input-group no-border">
+              <input type="text" value="" class="form-control" ng-model='search' placeholder="Search...">
+              <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                <i class="material-icons">search</i>
+                <div class="ripple-container"></div>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+
+    <div ng-controller="epicsCtrl" class="content">
+      <div class="container-fluid">
+        <div class="row" epics-list>
+        </div>
+        <script type="text/ng-template" id="epics.html">
+          <div class="col-lg-6 col-md-12" ng-repeat='epic in getEpics()' id="{{epic.id}}">
+            <div class="card" >
+              <div class="card-header card-header-tabs card-header-{{epic.color}}">
+                <div class="nav-tabs-navigation">
+                  <div class="nav-tabs-wrapper">
+                    <span class="nav-tabs-title">Epic:</span>
+                    <ul class="nav nav-tabs" data-tabs="tabs">
+                      <li class="nav-item">
+                        <a class="nav-link active active" href="#" data-toggle="tab">
+                          <i class="material-icons">bug_report</i> {{epic.title}}
+                          <div class="ripple-container"></div>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href='#add{{epic.id}}' data-toggle="tab">
+                          <i class="material-icons">add</i> Add Task
+                          <div class="ripple-container"></div>
+                        </a>
+                      </li>
+                      <li class="nav-item" ng-click="getListTasks(epic.id)">
+                        <a class="nav-link" href="#list{{epic.id}}" data-emptywidget="test" data-toggle="tab" sample-directive>
+                          <i class="material-icons">expand_more</i> Tasks
+                          <div class="ripple-container"></div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="tab-content">
+                  <div class="tab-pane" id="add{{epic.id}}">
+                    <form>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Title</label>
+                            <input type="text" class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Description</label>
+                            <input type="text" class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                      <button type="submit" class="btn btn-{{epic.color}} pull-right">Add</button>
+                      <div class="clearfix"></div>
+                    </form>
+                  </div>
+                  <div class="tab-pane" id="list{{epic.id}}">
+<!--                    <a href="" appenddiv="appenddiv" sample-directive>Click Me</a>-->
+
+<!--                    <table class="table">-->
+<!--                      <tbody>-->
+<!--                        <tr>-->
+<!--                          <td>-->
+<!--                            <div class="form-check">-->
+<!--                              <label class="form-check-label">-->
+<!--                                <input class="form-check-input" type="checkbox" value="">-->
+<!--                                <span class="form-check-sign">-->
+<!--                                      <span class="check"></span>-->
+<!--                                    </span>-->
+<!--                              </label>-->
+<!--                            </div>-->
+<!--                          </td>-->
+<!--                          <td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>-->
+<!--                          <td class="td-actions text-right">-->
+<!--                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">-->
+<!--                              <i class="material-icons">edit</i>-->
+<!--                            </button>-->
+<!--                            <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">-->
+<!--                              <i class="material-icons">close</i>-->
+<!--                            </button>-->
+<!--                          </td>-->
+<!--                        </tr>-->
+<!--                      </tbody>-->
+<!--                    </table>-->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </script>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container-fluid">
+        <nav class="float-left">
+          <ul>
+            <li>
+              <a href="#">
+                About Me
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Linked In
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Instagram
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Telegram
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+    <!-- End Footer -->
+  </div>
+</div>
+<div class="fixed-plugin">
+  <div class="dropdown show-dropdown">
+    <a href="#" data-toggle="dropdown">
+      <i class="fa fa-cog fa-2x"> </i>
+    </a>
+    <ul class="dropdown-menu">
+      <li class="header-title"> Add new Epic</li>
+      <li class="adjustments-line">
+            <form>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Title</label>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+              </div>
+            </form>
+      </li>
+
+      <li class="button-container">
+        <a href="#" class="btn btn-primary btn-block">Create</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!--   Core JS Files   -->
+<script src="../../assets/js/core/jquery.min.js"></script>
+<script src="../../assets/js/core/popper.min.js"></script>
+<script src="../../assets/js/core/bootstrap-material-design.min.js"></script>
+
+<!--  Notifications Plugin    -->
+<script src="../../assets/js/plugins/bootstrap-notify.js"></script>
+<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="../../assets/js/material-dashboard.js?v=2.1.2" type="text/javascript"></script>
+<!--AngularJS-->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.0/angular.min.js"></script>
+<!--AngularJS-->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.0/angular-sanitize.min.js"></script>
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
